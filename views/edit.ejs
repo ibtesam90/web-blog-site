@@ -1,0 +1,29 @@
+<%- include("partials/header.ejs") %>
+
+<!--This is the space for main body.-->
+<div class="container">
+
+    <h1>Edit Blog Post: <%= key %></h1>
+
+    <form action="/blog/<%= key %>/edit" method="POST">
+        <div>
+            <label for="author" class="form-label">Author:</label>
+            <input type="text" id="author" name="author"  class="form-control" value="<%= blogs[key]["author"] %>" readonly>
+        </div>
+        <div>
+            <label for="date" class="form-label">Date:</label>
+            <input type="text" id="date" name="date"  class="form-control" value="<%= blogs[key]["date"] %>">
+        </div>
+        <div>
+            <label for="blogBody" class="form-label">Blog Body:</label>
+            <textarea id="blogBody" name="blogBody"  class="form-control blog-body" ><%= blogs[key]["blogBody"]%></textarea>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-lg btn-success m-3">Save</button>
+            <a href="/blog/<%= key %>">Cancel</a>
+        </div>
+    </form>
+</div>
+
+<!-- This should be at the end of the page as it is for the footer.-->
+<%- include("partials/footer.ejs") %>
